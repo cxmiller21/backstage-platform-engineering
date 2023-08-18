@@ -1,0 +1,30 @@
+version: '3'
+services:
+  backstage:
+    build:
+      context: ../../backstage
+      dockerfile: packages/backend/Dockerfile
+    ports:
+      - "7007:7007"
+    depends_on:
+      - postgres
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: backstage_user
+      POSTGRES_PASSWORD: backstage_password
+    networks:
+      - backstage_network
+
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: backstage_db
+      POSTGRES_USER: backstage_user
+      POSTGRES_PASSWORD: backstage_password
+    networks:
+      - backstage_network
+
+networks:
+  backstage_network:
+    driver: bridge
