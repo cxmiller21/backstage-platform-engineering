@@ -51,7 +51,7 @@ spec:
       name: Fetch Base
       action: fetch:template
       input:
-        url: ./content
+        url: ./terraform
         values:
           name: ${{ parameters.name }}
 
