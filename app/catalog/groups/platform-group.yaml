@@ -1,0 +1,66 @@
+---
+# Non-demo file would separate the group and user into different files
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-user
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: tatsuro.yamashita
+spec:
+  profile:
+    displayName: Tatsuro Yamashita
+    email: tatsuro-yamashita@example.com
+    picture: https://example.com/staff/tatsuro-with-party-hat.jpeg
+  memberOf: [sirius, panther]
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-group
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: platform
+  description: The platform team
+spec:
+  type: business-unit
+  profile:
+    displayName: Platform
+    email: platform@example.com
+  children: [sirius]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: sirius
+  description: The Sirius platform team
+spec:
+  type: team
+  profile:
+    displayName: Sirius Platform Group
+    email: platform.sirius@example.com
+  parent: platform
+  members: [tyamashita]
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: operations
+  description: The Operations group team
+spec:
+  type: business-unit
+  profile:
+    displayName: Demo Operations Group
+    email: operations@example.com
+  children: [panther]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: panther
+  description: The Panther Operations group team
+spec:
+  type: team
+  profile:
+    displayName: Demo Panthers Operation Team
+    email: operations.panthers@example.com
+  parent: operations
+  members: [tyamashita]
+  children: []
