@@ -1,4 +1,4 @@
-# Test ${{ values.component_id }}
+# Test ${{ values.name }}
 
 Description: ${{ values.description }}
 

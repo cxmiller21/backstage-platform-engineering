@@ -1,4 +1,4 @@
-site_name: ${{values.component_id}}
+site_name: ${{values.name}}
 site_description: ${{values.description}}
 
 nav:
