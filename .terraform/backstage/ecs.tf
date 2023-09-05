@@ -16,7 +16,6 @@ locals {
   }
 }
 
-
 module "ecs" {
   source = "terraform-aws-modules/ecs/aws"
 
@@ -48,7 +47,10 @@ module "ecs" {
           # Can update to pull from SSM
           environment = [
             { name = "AWS_ALB_DNS_NAME", value = "http://${module.alb.lb_dns_name}" },
-            { name = "POSTGRES_HOST", value = module.rds.db_instance_endpoint },
+            {
+              name = "POSTGRES_HOST",
+              value = replace(module.db.db_instance_endpoint, ":${local.db_port}", "")
+            },
             { name = "POSTGRES_PORT", value = local.db_port },
             { name = "POSTGRES_USER", value = local.db_user },
             { name = "POSTGRES_PASSWORD", value = local.db_password },
@@ -97,11 +99,6 @@ module "ecs" {
     },
     var.default_tags
   )
-
-  depends_on = [
-    module.alb,
-    module.rds,
-  ]
 }
 
 ################################################################################

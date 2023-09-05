@@ -43,13 +43,6 @@ variable "rds_db_secret" {
   default   = "value"
 }
 
-# Remove this after confirming TF apply
-# is running successfully
-variable "rds_opaque_id" {
-  type      = string
-  sensitive = true
-  description = "AWS Account's unique RDS Opaque ID"
-}
 
 variable "default_tags" {
   default = {

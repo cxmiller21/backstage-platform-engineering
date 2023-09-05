@@ -4,10 +4,10 @@ DOCKER_COMPOSE_FILE="./local/docker/docker-compose.yml"
 KIND_CLUSTER_NAME="backstage"
 
 # Valid script invocations
-# ./backstage docker start|stop
-# ./backstage kubernetes start|stop
-# ./backstage terraform apply
-# ./backstage terraform destroy
+# ./backstage.sh docker start|stop
+# ./backstage.sh kubernetes start|stop
+# ./backstage.sh terraform apply
+# ./backstage.sh terraform destroy
 
 if [ "$1" != "docker" ] && [ "$1" != "kubernetes" ] && [ "$1" != "terraform" ]; then
     echo "Invalid first argument: start.sh docker|kubernetes|terraform"
@@ -77,7 +77,7 @@ elif [ "$1" == "terraform" ] && [ "$2" == "apply" ]; then
       -target module.vpc \
       -target module.alb_sg \
       -target module.alb \
-      -target module.rds
+      -target module.db
 
     # Create remaining resources
     terraform apply -auto-approve
@@ -91,4 +91,11 @@ elif [ "$1" == "terraform" ] && [ "$2" == "destroy" ]; then
     terraform destroy -auto-approve
     cd ../ecr
     terraform destroy -auto-approve
+
+    # Deregister and delete old task definition
+    # Task definition in TF destroy will only be set to inactive
+    # https://docs.aws.amazon.com/cli/latest/reference/ecs/deregister-task-definition.html
+    task_and_revision="ecsdemo-frontend:1"
+    delete_task=$(aws ecs deregister-task-definition --task-definition $task_and_revision)
+    echo "Successfully deregistered task definition: $task_and_revision"
 fi

@@ -24,7 +24,10 @@ backend:
       # https://node-postgres.com/features/ssl
       # you can set the sslmode configuration option via the `PGSSLMODE` environment variable
       # see https://www.postgresql.org/docs/current/libpq-ssl.html Table 33.1. SSL Mode Descriptions (e.g. require)
-      # ssl:
+      ssl:
+        # Required for Fargate to RDS connection
+        # Without this, we will get a connection error
+        rejectUnauthorized: false
       #   ca: # if you have a CA file and want to verify it you can uncomment this section
       #     $file: <file-path>/ca/server.crt
 

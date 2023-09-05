@@ -118,6 +118,7 @@ Backstage project created using `npx @backstage/create-app` with the following o
 
 - [x] Fix: Docker and Kubernetes deployments to load the correct app-config.yaml (Template, users ets. Currently they are not working)
 - [ ] Feat: Create a new API template that can be used to create a new API repository in my personal GitHub account
-- [ ] Fix: Docs - Re-add the techdoc configs and verify creating a new template generates a viewable docs page
+- [x] Fix: Docs - Re-add the techdoc configs and verify creating a new template generates a viewable docs page
 - [ ] Feat: Add docs to build to AWS S3
   - [ ] Figure out how tech-docs are working behind the scenes to generate the docs
+- [ ] Feat: Build tech-docs in the CI/CD pipeline - [tutorial](https://backstage.io/docs/features/techdocs/configuring-ci-cd)

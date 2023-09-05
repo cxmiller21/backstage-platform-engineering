@@ -35,6 +35,17 @@ import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
 
+// Uncomment to change the default theme variant
+// import { ThemeProvider } from '@material-ui/core/styles';
+// import { createTheme, lightTheme } from '@backstage/theme';
+// import CssBaseline from '@material-ui/core/CssBaseline';
+
+// const myTheme = createTheme({
+//   palette: lightTheme.palette,
+//   fontFamily: 'Comic Sans MS',
+//   defaultPageTheme: 'home',
+// });
+
 const app = createApp({
   apis,
   bindRoutes({ bind }) {
@@ -54,6 +65,17 @@ const app = createApp({
       catalogIndex: catalogPlugin.routes.catalogIndex,
     });
   },
+  // Uncomment to change the default theme variant
+  // themes: [{
+  //   id: 'demo-theme',
+  //   title: 'My Demo Theme',
+  //   variant: 'light',
+  //   Provider: ({ children }) => (
+  //     <ThemeProvider theme={myTheme}>
+  //       <CssBaseline>{children}</CssBaseline>
+  //     </ThemeProvider>
+  //   ),
+  // }]
 });
 
 const routes = (

@@ -8,5 +8,5 @@ output "ecs_frontend_sg_id" {
 }
 
 output "rds_dns_endpoint" {
-  value = module.rds.db_instance_endpoint
+  value = module.db.db_instance_endpoint
 }
