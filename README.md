@@ -25,7 +25,7 @@ This project is a demo of [Backstage](https://backstage.io/) for Platform Engine
    ```bash
    git clone cxmiller21/backstage-platform-engineering
    ```
-2. Create/update the following
+2. Optional - Add GitHub Access Token to create new repository from a Backstage template in GitHub
    ```bash
    # Optional
    export GITHUB_TOKEN=personal-access-token
@@ -45,7 +45,7 @@ This project is a demo of [Backstage](https://backstage.io/) for Platform Engine
 
    # Locally with Kubernetes
    ./backstage.sh kubernetes start
-   # Open http://localhost:7070 in your browser
+   # Open http://localhost:7007 in your browser
    ```
 
 ### Cleanup
@@ -76,7 +76,7 @@ Script runs `terraform init` and `terraform apply` in the `.terraform/backstage`
 
 ### Cleanup
 
-Script runs `terraform destroy` in the `.terraform/backstage` and `.terraform/ecr` directories.
+The backstage.sh script runs `terraform destroy` in the `.terraform/backstage` and `.terraform/ecr` directories.
 
 ```bash
 ./backstage.sh terraform destroy
