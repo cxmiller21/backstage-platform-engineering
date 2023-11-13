@@ -1,6 +1,6 @@
 # Backstage Platform Engineering Project
 
-This project is a demo of [Backstage](https://backstage.io/) for Platform Engineering. It includes the following
+This project is a demo of [Backstage](https://backstage.io/) for Platform Engineering. It includes the following,
 
 - Configurations to run backstage locally with yarn dev, Docker, and Kubernetes
 - Resources to deploy the project to an AWS account using Terraform
@@ -23,7 +23,7 @@ This project is a demo of [Backstage](https://backstage.io/) for Platform Engine
 
 1. Clone the repository
    ```bash
-   git clone cxmiller21/backstage-platform-engineering
+   git clone https://github.com/cxmiller21/backstage-platform-engineering.git
    ```
 2. Optional - Add GitHub Access Token to create new repository from a Backstage template in GitHub
    ```bash
@@ -31,12 +31,13 @@ This project is a demo of [Backstage](https://backstage.io/) for Platform Engine
    export GITHUB_TOKEN=personal-access-token
    # Optional if running Kubernetes (PLEASE DO NOT COMMIT THIS CHANGE)
    echo personal-access-token | base64
-   # Update ./local/kubernetes/backstage.yaml with the base64 encoded token
+   # Update the `./local/kubernetes/backstage.yaml` file with the base64 encoded token
    ```
 3. Start Backstage
    ```bash
    # Locally
    cd app
+   yarn install
    yarn dev
 
    # Locally with Docker

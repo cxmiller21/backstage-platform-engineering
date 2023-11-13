@@ -24,6 +24,7 @@ if [ "$1" == "docker" ]; then
     if [ "$2" == "start" ]; then
         cd app
         yarn install
+        yarn tsc
         yarn build:backend
         cd ..
         docker-compose -f $DOCKER_COMPOSE_FILE up --build
@@ -38,6 +39,7 @@ elif [ "$1" == "kubernetes" ]; then
     if [ "$2" == "start" ]; then
         cd app
         yarn install
+        yarn
         yarn build:backend
         cd ..
         kind create cluster --name $KIND_CLUSTER_NAME
