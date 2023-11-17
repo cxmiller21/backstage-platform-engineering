@@ -9,6 +9,10 @@ This project is a demo of [Backstage](https://backstage.io/) for Platform Engine
 
 ## Getting Started
 
+Please note that this project is a demo and is not intended to be used in production. The project is intended to be used as a starting point for a new Backstage project.
+
+The base project should work as expected. Although, there might need to be some levels of troubleshooting to get the project working in your environment. Please open an issue if you run into any problems.
+
 ### Prerequisites
 
 - [Git](https://git-scm.com/downloads)
@@ -25,7 +29,11 @@ This project is a demo of [Backstage](https://backstage.io/) for Platform Engine
    ```bash
    git clone https://github.com/cxmiller21/backstage-platform-engineering.git
    ```
-2. Optional - Add GitHub Access Token to create new repository from a Backstage template in GitHub
+2. Optional - Create a GitHub Access Token with write permissions
+   1. Login to GitHub
+   2. Go to Settings > Developer Settings > Personal Access Tokens
+   3. Tokens (Classic) > Generate new token > Enter name + select "Repo" scope
+3. Optional - Add GitHub Access Token to create new repository from a Backstage template in GitHub
    ```bash
    # Optional
    export GITHUB_TOKEN=personal-access-token
@@ -33,7 +41,7 @@ This project is a demo of [Backstage](https://backstage.io/) for Platform Engine
    echo personal-access-token | base64
    # Update the `./local/kubernetes/backstage.yaml` file with the base64 encoded token
    ```
-3. Start Backstage
+4. Start Backstage
    ```bash
    # Locally
    cd app

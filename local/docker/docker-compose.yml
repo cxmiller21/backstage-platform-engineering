@@ -17,6 +17,7 @@ services:
     ports:
       - 7007:7007
     environment:
+      GITHUB_TOKEN: ${GITHUB_TOKEN}
       POSTGRES_HOST: postgres
       POSTGRES_PORT: 5432
       POSTGRES_USER: myuser

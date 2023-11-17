@@ -35,6 +35,11 @@ WORKDIR /app
 # This switches many Node.js dependencies to production mode.
 ENV NODE_ENV production
 
+# Set the GitHub token to use for the catalog refresh
+# Optionally comment this out if you're seeing errors
+# or don't want to include this token in your image
+ENV GITHUB_TOKEN=${GITHUB_TOKEN}
+
 # Copy repo skeleton first, to avoid unnecessary docker cache invalidation.
 # The skeleton contains the package.json of each package in the monorepo,
 # and along with yarn.lock and the root package.json, that's enough to run yarn install.
